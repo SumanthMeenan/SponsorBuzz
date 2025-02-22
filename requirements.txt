@@ -3,3 +3,4 @@ Pillow
 opencv-python
 imageio
 python-dotenv
+yt_dlp
