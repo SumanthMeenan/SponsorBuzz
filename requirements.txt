@@ -6,3 +6,6 @@ python-dotenv
 yt_dlp
 pytube
 streamlit
+pandas
+matplotlib
+watchdog
