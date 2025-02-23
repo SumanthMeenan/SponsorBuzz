@@ -1,0 +1,44 @@
+[
+    {
+        "ad_type": "on-site",
+        "brand_name": "DHL",
+        "country": "Germany",
+        "industry": "logistics",
+        "total_sec_displayed": 150
+    },
+    {
+        "ad_type": "on-site",
+        "brand_name": "Lenovo",
+        "country": "China",
+        "industry": "technology",
+        "total_sec_displayed": 120
+    },
+    {
+        "ad_type": "player",
+        "brand_name": "Pirelli",
+        "country": "Italy",
+        "industry": "automotive",
+        "total_sec_displayed": 180
+    },
+    {
+        "ad_type": "player",
+        "brand_name": "Scuderia Ferrari",
+        "country": "Italy",
+        "industry": "automotive",
+        "total_sec_displayed": 200
+    },
+    {
+        "ad_type": "broadcast",
+        "brand_name": "Amazon Prime",
+        "country": "USA",
+        "industry": "retail",
+        "total_sec_displayed": 30
+    },
+    {
+        "ad_type": "broadcast",
+        "brand_name": "Rolex",
+        "country": "Switzerland",
+        "industry": "retail",
+        "total_sec_displayed": 45
+    }
+]

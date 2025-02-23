@@ -1,49 +1,63 @@
 import os
+import json
+import csv
+import argparse
 import google.generativeai as genai
-from model import model, model2
-
-# Choose a Gemini model.
+from model import model
 from configure import configure_api
-configure_api() 
 
+# Configure API
+configure_api()
+
+# Define allowed video extensions
 video_extensions = ['.mp4', '.avi', '.mov', '.mkv', '.flv', '.wmv']
-# Select only videos from the list
-files = os.listdir("data/")
-video_files = [file for file in files if any(file.lower().endswith(ext) for ext in video_extensions)]
 
-# generate and print response
-print(video_files[0])
-response = model.generate_content(["Analyse this video", video_files[0]],
-                                  request_options={"timeout": 600})
+def analyze_video(video_path):
+    """Generates AI response for the given video."""
+    if not os.path.exists(video_path):
+        print(f"Error: File '{video_path}' not found.")
+        return None
 
-print(response.text)
+    response = model.generate_content(["Analyse this video", video_path],
+                                      request_options={"timeout": 600})
+    return response.text
 
-files = genai.list_files()
-for file in files:
-    print(f"File ID: {file.name}, Status: {file.state}")
+def response_to_json(llm_output, json_filename, csv_filename):
+    """Converts AI response to JSON and CSV files."""
+    try:
+        data = json.loads(llm_output)
 
-retrieved_file = genai.get_file('files/jp9bezo4gmhw')
-print(f"Retrieved File ID: {retrieved_file.name}, Status: {retrieved_file.state.name}")
+        # Save JSON file
+        with open(json_filename, "w", encoding="utf-8") as json_file:
+            json.dump(data, json_file, indent=4)
+        print(f"JSON file saved as {json_filename}")
 
-response2 = model2.generate_content(["Analyse this video", retrieved_file],
-                                  request_options={"timeout": 600})
-print("response 2: ", response2.text)
+        # Save CSV file
+        with open(csv_filename, "w", newline="", encoding="utf-8") as csv_file:
+            csv_writer = csv.writer(csv_file)
+            csv_writer.writerow(data[0].keys())  # Header
+            for entry in data:
+                csv_writer.writerow(entry.values())
 
+        print(f"CSV file saved as {csv_filename}")
 
+    except json.JSONDecodeError as e:
+        print(f"Error decoding JSON: {e}")
 
+def main():
+    """Main function to handle argument parsing and processing."""
+    parser = argparse.ArgumentParser(description="Analyze sports video ads and extract brand details.")
+    parser.add_argument("video_path", type=str, help="Path to the video file for analysis")
+    parser.add_argument("--json", type=str, default="ads_data.json", help="Output JSON filename (default: ads_data.json)")
+    parser.add_argument("--csv", type=str, default="ads_data.csv", help="Output CSV filename (default: ads_data.csv)")
 
+    args = parser.parse_args()
 
+    # Analyze video
+    llm_output = analyze_video(args.video_path)
+    
+    if llm_output:
+        response_to_json(llm_output, args.json, args.csv)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+if __name__ == "__main__":
+    main()

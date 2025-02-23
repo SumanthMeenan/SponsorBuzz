@@ -5,6 +5,14 @@ import yt_dlp
 
 # Function to download video from a URL
 def download_video(video_url, filename):
+    # response = requests.get(video_url, stream=True)
+    # if response.status_code == 200:
+    #     with open(filename, 'wb') as f:
+    #         for chunk in response.iter_content(chunk_size=1024):
+    #             f.write(chunk)
+    #     print(f"Video downloaded: {filename}")
+    # else: 
+    #     print("Failed to donwload video")    
     ydl_opts = {
         'outtmpl': filename,  # Save the video with the given filename
         'format': 'bestvideo+bestaudio/best',  # Get the best quality available
