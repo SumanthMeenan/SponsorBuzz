@@ -4,3 +4,5 @@ opencv-python
 imageio
 python-dotenv
 yt_dlp
+pytube
+streamlit

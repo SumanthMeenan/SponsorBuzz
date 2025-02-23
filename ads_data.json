@@ -1,44 +1,37 @@
 [
     {
-        "ad_type": "on-site",
-        "brand_name": "DHL",
-        "country": "Germany",
-        "industry": "logistics",
-        "total_sec_displayed": 150
-    },
-    {
-        "ad_type": "on-site",
-        "brand_name": "Lenovo",
-        "country": "China",
+        "ad_type": "broadcast",
+        "brand_name": "Verizon",
+        "country": "USA",
         "industry": "technology",
-        "total_sec_displayed": 120
-    },
-    {
-        "ad_type": "player",
-        "brand_name": "Pirelli",
-        "country": "Italy",
-        "industry": "automotive",
-        "total_sec_displayed": 180
-    },
-    {
-        "ad_type": "player",
-        "brand_name": "Scuderia Ferrari",
-        "country": "Italy",
-        "industry": "automotive",
-        "total_sec_displayed": 200
+        "total_sec_displayed": 10
     },
     {
         "ad_type": "broadcast",
-        "brand_name": "Amazon Prime",
+        "brand_name": "Bud Light",
         "country": "USA",
         "industry": "retail",
-        "total_sec_displayed": 30
+        "total_sec_displayed": 15
     },
     {
         "ad_type": "broadcast",
-        "brand_name": "Rolex",
-        "country": "Switzerland",
+        "brand_name": "State Farm",
+        "country": "USA",
+        "industry": "financial services",
+        "total_sec_displayed": 12
+    },
+    {
+        "ad_type": "on-site",
+        "brand_name": "Gatorade",
+        "country": "USA",
         "industry": "retail",
-        "total_sec_displayed": 45
+        "total_sec_displayed": 60
+    },
+    {
+        "ad_type": "player",
+        "brand_name": "Under Armour",
+        "country": "USA",
+        "industry": "retail",
+        "total_sec_displayed": 180
     }
 ]
